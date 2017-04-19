@@ -12,7 +12,7 @@ use Aliyun\Core\Regions\Endpoint;
 use Aliyun\Core\Regions\EndpointProvider;  
 use Aliyun\Core\Regions\EndpointConfig;  
 use Aliyun\Core\Sms\Request\V20160927\SingleSendSmsRequest;  
-$iClientProfile = DefaultProfile::getProfile('cn-hangzhou', 'your accessKeyId', 'your accessSecret);  
+$iClientProfile = DefaultProfile::getProfile('cn-hangzhou', 'your accessKeyId', 'your accessSecret');  
 $client = new DefaultAcsClient($iClientProfile);  
 $config = new EndpointConfig();  
 $endpoint = new Endpoint('cn-hangzhou', $config->getRegionIds(), $config->getProductDomains());  
@@ -22,7 +22,7 @@ $request = new SingleSendSmsRequest();
 $request->setSignName('XXXX');  //签名名称  
 $request->setTemplateCode('SMS_123456');  //模板id  
 $request->setRecNum('138xxx');//目标手机号  
-$request->setParamString("{\"goodname\":\"商品名\",\"specinfo\":\"商品属性\"}");//模板变量，数字一定要转换为字符串  
+$request->setParamString('{\"goodname\":\"商品名\",\"specinfo\":\"商品属性\"}');//模板变量，数字一定要转换为字符串  
 try {  
     $response = $client->getAcsResponse($request);  
     print_r($response);  
